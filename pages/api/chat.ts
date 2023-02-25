@@ -2,9 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { ChatGPTAPI } from 'chatgpt';
 
-type Data = {
-  response: string;
-};
+type Data = any;
 
 export default async function handler(
   req: NextApiRequest,
@@ -15,5 +13,15 @@ export default async function handler(
   });
 
   const openAiRes = await api.sendMessage(req.body.message);
-  res.status(200).json({ response: openAiRes.text });
+  res.status(200).json({
+    version: 'v1',
+    content: {
+      messages: [
+        {
+          type: 'text',
+          text: openAiRes.text,
+        },
+      ],
+    },
+  });
 }
