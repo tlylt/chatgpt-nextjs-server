@@ -14,6 +14,7 @@ or follow these steps:
 - import this project into Vercel
 - enter the environment variable OPENAI_API_KEY = your_openai_api_key
 - API will be available at https://your-vercel-project-name.vercel.app/api/chat
+  - Note that the above URL is just an example. You can find your own URL in the Vercel dashboard.
 
 ## API usage
 
